@@ -11,11 +11,9 @@
       .form-group {
         margin-bottom: 1rem;
       }
-
       #result {
         color: green;
       }
-
       .calculator {
         border: 1px solid rgb(179, 179, 179);
         border-radius: 0.375rem;
@@ -84,13 +82,40 @@
         background-color: rgba(255, 1, 1, 0.651);
         color: white;
       }
+
+      #navbar {
+        background-color: #333;
+        overflow: hidden;
+      }
+
+      #navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      #navbar a:hover {
+        background-color: #ddd;
+        color: black;
+      }
     </style>
   </head>
-
   <body>
+    <div id="navbar">
+      <a href="index.html">Home</a>
+      <a href="sem1.html">Sem1</a>
+      <a href="sem2.html">Sem2</a>
+      <a href="sem3.html">Sem3</a>
+      <a href="sem4.html">Sem4</a>
+      <a href="sgpa.html">SGPA</a>
+    </div>
+
     <div class="container">
       <div class="center">
-        <h2 class="text-center">1st SEM SGPA Calculator</h2>
+        <h2 class="text-center">3rd SEM SGPA Calculator</h2>
       </div>
       <br />
 
@@ -118,8 +143,22 @@
         </div>
       </div>
 
+      <div class="additional-details">
+        <p id="additionaldetails"></p>
+        <p id="cgpaDisplay"></p>
+        <p id="percentageDisplay"></p>
+        <p id="total1Display"></p>
+        <p id="totalMarksDisplay"></p>
+      </div>
+
       <script>
         let resultElement = document.querySelector(".result");
+        let additionaldetails = document.getElementById("additionaldetails");
+        let cgpaDisplay = document.getElementById("cgpaDisplay");
+        let percentageDisplay = document.getElementById("percentageDisplay");
+        let total1Display = document.getElementById("total1Display");
+        let totalMarksDisplay = document.getElementById("totalMarksDisplay");
+
         let currentExpression = "";
 
         function addToResult(value) {
@@ -149,100 +188,95 @@
       <form>
         <div class="form-row">
           <div class="col-md-6 mb-3">
-            <label for="input1">Database Management System</label> <br />
+            <label for="input1">DATA ANALYTICS USING PYTHON</label> <br />
             <input
               type="number"
               class="form-control"
               id="input1"
-              placeholder="DBMS"
+              placeholder="DAP"
               required
             />
           </div>
           <div class="col-md-6 mb-3">
-            <label for="input2">Object Oriented Programming with Java</label
+            <label for="input2"
+              >BIG DATA ANALYTICS / SOFTWARE PROJECT MANAGEMENT</label
             ><br />
             <input
               type="number"
               class="form-control"
               id="input2"
-              placeholder="OOP Java"
+              placeholder="BDA/SPM"
               required
             />
           </div>
+          <!-- <div class="col-md-4 mb-3">
+            <label for="input9"> Software Project Management</label>
+            <input type="number" class="form-control" id="input9" placeholder=" SPM" required >
+          </div> -->
           <div class="col-md-6 mb-3">
-            <label for="input3">Web Technologies</label><br />
+            <label for="input3">CLOUD COMPUTING </label><br />
             <input
               type="number"
               class="form-control"
               id="input3"
-              placeholder="Web Tech"
+              placeholder="CC"
               required
             />
           </div>
           <div class="col-md-6 mb-3">
-            <label for="input4">Software Engineering</label><br />
+            <label for="input4">INTERNET OF THINGS</label><br />
             <input
               type="number"
               class="form-control"
               id="input4"
-              placeholder="SE"
+              placeholder="IOT"
               required
             />
           </div>
           <div class="col-md-6 mb-3">
-            <label for="input5">Elective-1</label><br />
+            <label for="input5">ADVANCES IN JAVA </label><br />
             <input
               type="number"
               class="form-control"
               id="input5"
-              placeholder="Elective-1"
+              placeholder="AJ"
               required
             />
           </div>
           <div class="col-md-6 mb-3">
-            <label for="input6">Elective-2</label><br />
+            <label for="input6">DAP MINI-PROJECT </label><br />
             <input
               type="number"
               class="form-control"
               id="input6"
-              placeholder="Elective-2"
+              placeholder="DAP LAB"
               required
             />
           </div>
           <div class="col-md-6 mb-3">
-            <label for="input7">BMS Lab</label><br />
+            <label for="input7">IOT LAB WITH MINI PROJECT</label><br />
             <input
               type="number"
               class="form-control"
               id="input7"
-              placeholder="BMS Lab"
+              placeholder="IOT Lab"
               required
             />
           </div>
           <div class="col-md-6 mb-3">
-            <label for="input8">Java Programming Lab</label><br />
+            <label for="input8">ADVANCES IN JAVA LAB</label><br />
             <input
               type="number"
               class="form-control"
               id="input8"
-              placeholder="Java Lab"
-              required
-            />
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="input9">Web Technologies Lab with Mini-project</label
-            ><br />
-            <input
-              type="number"
-              class="form-control"
-              id="input9"
-              placeholder="Web Tech Lab"
+              placeholder="AJ Lab"
               required
             />
           </div>
         </div>
         <div class="row">
           <div class="col-md-6"></div>
+          <!-- Placeholder column for left content -->
           <div class="col-md-6 text-right">
             <button
               type="button"
@@ -255,10 +289,41 @@
         </div>
       </form>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
+      function redirectToHomePage() {
+        window.location.href = "index.html";
+      }
+
+      function redirectToSem1() {
+        window.location.href = "sem1.html";
+      }
+
+      function redirectToSem2() {
+        window.location.href = "sem2.html";
+      }
+
+      function redirectToSem3() {
+        window.location.href = "sem3.html";
+      }
+
+      function redirectToSem4() {
+        window.location.href = "sem4.html";
+      }
+
+      function redirectToSGPA() {
+        window.location.href = "sgpa.html";
+      }
+
       function calculateAndDisplay() {
         // Get the values from the input fields
         var input1 = parseFloat(document.getElementById("input1").value) || 0;
@@ -269,7 +334,19 @@
         var input6 = parseFloat(document.getElementById("input6").value) || 0;
         var input7 = parseFloat(document.getElementById("input7").value) || 0;
         var input8 = parseFloat(document.getElementById("input8").value) || 0;
-        var input9 = parseFloat(document.getElementById("input9").value) || 0;
+        // var input9 = parseFloat(document.getElementById("input9").value) || 0;
+
+        // if(grade9==0)
+        // {
+        //   var total1 = grade1 + grade2+ grade3+grade4+grade5+grade6+grade7+grade8;
+        //   alert("BDA" +total1);
+        // }
+
+        // if(grade2==0)
+        // {
+        //   var total2 = grade1 + grade9+ grade3+grade4+grade5+grade6+grade7+grade8;
+        //   alert("SPM"+total2);
+        // }
 
         function calculateGradePoints(mark) {
           if (mark >= 90) {
@@ -288,7 +365,19 @@
             return 0; // Grade points for marks below 50
           }
         }
+        // Display the sum in the result h1 tag
+        //   document.getElementById("result").textContent = "Total: " + sum;
 
+        // Calculate the sum of the input values
+        var grade1 = calculateGradePoints(input1);
+        var grade2 = calculateGradePoints(input2);
+        var grade3 = calculateGradePoints(input3);
+        var grade4 = calculateGradePoints(input4);
+        var grade5 = calculateGradePoints(input5);
+        var grade6 = calculateGradePoints(input6);
+        var grade7 = calculateGradePoints(input7);
+        var grade8 = calculateGradePoints(input8);
+        // var grade9 = calculateGradePoints(input9);
         if (
           input1 != " " &&
           input2 != " " &&
@@ -297,8 +386,7 @@
           input5 != " " &&
           input6 != " " &&
           input7 != " " &&
-          input8 != " " &&
-          input9 != " "
+          input8 != " "
         ) {
           if (
             input1 > 100 ||
@@ -308,8 +396,7 @@
             input5 > 100 ||
             input6 > 100 ||
             input7 > 100 ||
-            input8 > 100 ||
-            input9 > 100
+            input8 > 100
           ) {
             document.getElementById("result").textContent =
               "please enter the marks < 100";
@@ -318,22 +405,45 @@
             location.reload();
           } else {
             var total1 =
-              calculateGradePoints(input1) * 3 +
-              calculateGradePoints(input2) * 3 +
-              calculateGradePoints(input3) * 4 +
-              calculateGradePoints(input4) * 4 +
-              calculateGradePoints(input5) * 3 +
-              calculateGradePoints(input6) * 3 +
-              calculateGradePoints(input7) * 2 +
-              calculateGradePoints(input8) * 2 +
-              calculateGradePoints(input9) * 2;
-            var cgpabda = total1 / 26;
+              grade1 * 4 +
+              grade2 * 3 +
+              grade3 * 3 +
+              grade4 * 4 +
+              grade5 * 4 +
+              grade6 * 2 +
+              grade7 * 2 +
+              grade8 * 2;
+            var cgpabda = total1 / 24;
 
             cgpa = cgpabda.toFixed(3);
             document.getElementById("result").textContent = "SGPA: " + cgpa;
             window.scrollTo(0, 0);
+
+            var totalMarks =
+              input1 +
+              input2 +
+              input3 +
+              input4 +
+              input5 +
+              input6 +
+              input7 +
+              input8;
+            var totalSubjects = 8; // Assuming there are 8 subjects
+
+            // Calculate and display percentage
+            var percentage = (totalMarks / (totalSubjects * 100)) * 100;
+            document.getElementById("result").textContent +=
+              " Percentage: " + percentage.toFixed(2) + "%";
+
+            // Display additional details
+            additionaldetails.textContent = "Additional Details";
+            cgpaDisplay.textContent = "CGPA: " + cgpa;
+            percentageDisplay.textContent = "Percentage: " + percentage + "%";
+            total1Display.textContent = "Toatal Credits: " + total1;
+            totalMarksDisplay.textContent = "Total Marks: " + totalMarks;
           }
         } else {
+          // alert("ERROR")
           document.getElementById("result").textContent =
             "Please fill all the fields";
           window.scrollTo(0, 0);
