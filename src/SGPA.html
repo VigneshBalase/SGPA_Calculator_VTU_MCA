@@ -13,9 +13,9 @@
 
       header {
         background-color: #333;
-        /* overflow: hidden; */
+        overflow: hidden;
         padding: 10px;
-        text-align: center;
+        /* text-align: center; */
         width: 100%;
         color: white;
       }
@@ -24,12 +24,16 @@
         margin: 0;
         padding: 0;
         list-style-type: none;
+        text-align: center; /* Center the list items horizontally */
+      }
+
+      #navbar li {
+        display: inline-block; /* Display list items in a single line */
+        margin-right: 20px; /* Add some spacing between items */
       }
 
       #navbar a {
-        display: inline-block;
         color: white;
-        text-align: center;
         padding: 14px 16px;
         text-decoration: none;
       }
@@ -103,7 +107,7 @@
         <li><a href="sem2.html">Sem2</a></li>
         <li><a href="sem3.html">Sem3</a></li>
         <li><a href="sem4.html">Sem4</a></li>
-        <li><a href="sgpa.html">SGPA</a></li>
+        <li><a href="sgpa.html">CGPA</a></li>
       </ul>
     </header>
 
@@ -111,17 +115,33 @@
     <div class="container">
       <div class="condition" id="condition1">
         <h2>1st-year SGPA</h2>
-        <input type="text" id="sem1" placeholder="Semester 1 SGPA" />
-        <input type="text" id="sem2" placeholder="Semester 2 SGPA" />
-        <button onclick="calculateSGPA1()">Calculate SGPA</button>
+        <input
+          type="text"
+          id="sem1"
+          placeholder="Semester 1 CGPA in Points (Ex: total Credits: 216)"
+        />
+        <input
+          type="text"
+          id="sem2"
+          placeholder="Semester 2 CGPA in Points (Ex: total Credits: 216)"
+        />
+        <button onclick="calculateSGPA1()">Calculate CGPA</button>
         <p id="result1"></p>
       </div>
 
       <div class="condition" id="condition2">
         <h2>2nd-year SGPA</h2>
-        <input type="text" id="sem3" placeholder="Semester 3 SGPA" />
-        <input type="text" id="sem4" placeholder="Semester 4 SGPA" />
-        <button onclick="calculateSGPA2()">Calculate SGPA</button>
+        <input
+          type="text"
+          id="sem3"
+          placeholder="Semester 3 CGPA in Points (Ex: total Credits: 216)"
+        />
+        <input
+          type="text"
+          id="sem4"
+          placeholder="Semester 4 CGPA in Points (Ex: total Credits: 216) "
+        />
+        <button onclick="calculateSGPA2()">Calculate CGPA</button>
         <p id="result2"></p>
       </div>
     </div>
@@ -130,10 +150,26 @@
     <div class="container">
       <div class="condition" id="condition3">
         <h2>Total Credits Points</h2>
-        <input type="text" id="credit1" placeholder="Semester 1 Credits" />
-        <input type="text" id="credit2" placeholder="Semester 2 Credits" />
-        <input type="text" id="credit3" placeholder="Semester 3 Credits" />
-        <input type="text" id="credit4" placeholder="Semester 4 Credits" />
+        <input
+          type="text"
+          id="credit1"
+          placeholder="Semester 1 CGPA in Points (Ex: total Credits: 216)"
+        />
+        <input
+          type="text"
+          id="credit2"
+          placeholder="Semester 2 CGPA in Points (Ex: total Credits: 216)"
+        />
+        <input
+          type="text"
+          id="credit3"
+          placeholder="Semester 3 CGPA in Points (Ex: total Credits: 216)"
+        />
+        <input
+          type="text"
+          id="credit4"
+          placeholder="Semester 4 CGPA in Points (Ex: total Credits: 216)"
+        />
         <button onclick="calculateTotalCredits()">
           Calculate Total Credits
         </button>
@@ -171,12 +207,11 @@
       }
 
       function redirectToSem4() {
-        window.location.href = "sem4.html";
-      }
 
       function redirectToSGPA() {
         window.location.href = "sgpa.html";
       }
+
       // JavaScript functions for calculations
       function calculateSGPA1() {
         const sem1 = parseFloat(document.getElementById("sem1").value);
@@ -219,5 +254,8 @@
         ).innerHTML = `Aggregate: ${aggregate.toFixed(2)}`;
       }
     </script>
+    <footer>
+      <div>&copy; 2023 Manoj and Vignesh. All rights reserved.</div>
+    </footer>
   </body>
 </html>

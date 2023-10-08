@@ -113,7 +113,7 @@
       <a href="sem2.html">Sem2</a>
       <a href="sem3.html">Sem3</a>
       <a href="sem4.html">Sem4</a>
-      <a href="sgpa.html">SGPA</a>
+      <a href="sgpa.html">CGPA</a>
     </div>
 
     <div class="container">
@@ -252,7 +252,7 @@
             />
           </div>
           <div class="col-md-6 mb-3">
-            <label for="input7">BMS Lab</label><br />
+            <label for="input7">DBMS Lab</label><br />
             <input
               type="number"
               class="form-control"
@@ -403,7 +403,7 @@
             var cgpabda = total1 / 26;
 
             cgpa = cgpabda.toFixed(3);
-            document.getElementById("result").textContent = "SGPA: " + cgpa;
+            document.getElementById("result").textContent = "CGPA: " + cgpa;
             window.scrollTo(0, 0);
 
             var totalMarks =
@@ -427,7 +427,7 @@
             additionaldetails.textContent = "Additional Details";
             cgpaDisplay.textContent = "CGPA: " + cgpa;
             percentageDisplay.textContent = "Percentage: " + percentage + "%";
-            total1Display.textContent = "Toatal Credits: " + total1;
+            total1Display.textContent = "total Credits: " + total1;
             totalMarksDisplay.textContent = "Total Marks: " + totalMarks;
           }
         } else {
